@@ -33,4 +33,14 @@ const create = async (req, res) => {
   }
 };
 
-module.exports = { getAll, getById, create };
+const update = async (req, res) => {
+ try {
+   const { id } = req.params;
+   const sale = await SaleService.update({ ...req.body, id });
+   return res.status(200).json(sale);
+ } catch (error) {
+   return res.status(404).json({ messge: 'Sale not found' });
+ }
+};
+
+module.exports = { getAll, getById, create, update };

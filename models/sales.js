@@ -34,8 +34,13 @@ const create = async ({ productId, quantity }) => {
 };
 
 const update = async ({ productId, quantity, id }) => {
-  await connection.execute('UPDATE sales_products SET productId = ?, quantity = ? WHERE id = ?',
-    [productId, quantity, id]);
+  await connection.execute(
+    `UPDATE sales_products
+    SET product_id = ?,
+    quantity = ?
+    WHERE sale_id = ?`,
+    [productId, quantity, id],
+  );
   return {
     saleId: id,
     itemUpdated: [{ productId, quantity }],
