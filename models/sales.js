@@ -12,12 +12,13 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const [sale] = await connection.execute(
-    `SELECT t2.sale_id AS saleId, t1.date, t2.product_id AS productId, t2.quantity
+    `SELECT t1.date, t2.product_id AS productId, t2.quantity
     FROM sales AS t1
     INNER JOIN sales_products AS t2
     ON t1.id = t2.sale_id
-    HAVING saleId = ?`, [id],
+    AND t2.sale_id = ?`, [id],
   );
+  console.log(sale);
   return sale;
 };
 
