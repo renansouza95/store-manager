@@ -44,4 +44,18 @@ const update = async (req, res) => {
  }
 };
 
-module.exports = { getAll, getById, create, update };
+const deleteById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const test = await SaleService.getById(id);
+    if (test === undefined || test.length === 0) {
+      return res.status(404).json({ message: MSG_ERROR });
+    }
+    await SaleService.deleteById(id);
+    return res.status(204).end();
+  } catch (error) {
+    return res.status(404).json({ message: MSG_ERROR });
+  }
+};
+
+module.exports = { getAll, getById, create, update, deleteById };

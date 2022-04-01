@@ -19,7 +19,7 @@ router
     SaleValidation.idValidator,
     SaleValidation.quantValidator,
     SalesController.update,
-  );
-  // .delete('/:id', SalesController.deleteById);
+  )
+  .delete('/:id', SalesController.deleteById);
 
 module.exports = router;

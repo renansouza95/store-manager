@@ -27,4 +27,12 @@ const update = async (sale, id) => {
   }
 };
 
-module.exports = { getById, create, update };
+const deleteById = async (id) => {
+  try {
+    await SaleModel.deleteById(id);
+  } catch (error) {
+    return { error: 500, message: 'Server error' };
+  }
+};
+
+module.exports = { getById, create, update, deleteById };
