@@ -18,20 +18,19 @@ const getById = async (id) => {
     ON t1.id = t2.sale_id
     AND t2.sale_id = ?`, [id],
   );
-  console.log(sale);
   return sale;
 };
 
-const create = async ({ productId, quantity }) => {
-  await connection.execute('INSERT INTO sales SET id = ?, date = Date.now()', [productId]);
-  const [{ insertId }] = await connection.execute(
+const create = async (sale) => {
+  const [{ insertId }] = await connection.execute('INSERT INTO sales SET date = now()');
+  sale.forEach((e) => connection.execute(
     `INSERT INTO sales_products
     SET sale_id = ?, product_id = ?, quantity = ?`,
-    [productId, quantity],
-  );
+    [insertId, e.productId, e.quantity],
+  ));
   return {
     id: insertId,
-    itemsSold: [{ productId, quantity }],
+    itemsSold: sale,
   };
 };
 

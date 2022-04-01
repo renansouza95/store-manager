@@ -1,6 +1,6 @@
 const idValidator = (req, res, next) => {
   const products = req.body;
-  console.log('SALES ID');
+
   if (products.some(({ productId }) => productId === undefined)) {
     return res.status(400).json({ message: '"productId" is required' });
   }
@@ -10,7 +10,7 @@ const idValidator = (req, res, next) => {
 
 const quantValidator = (req, res, next) => {
   const products = req.body;
-  console.log('SALES QUANTITY');
+
   if (products.some(({ quantity }) => quantity === undefined)) {
       return res.status(400).json({ message: '"quantity" is required' });
     }
