@@ -23,7 +23,7 @@ const getById = async (id) => {
 
 const create = async (sale) => {
   const [{ insertId }] = await connection.execute('INSERT INTO sales SET date = now()');
-  sale.forEach((e) => connection.execute(
+  await sale.forEach((e) => connection.execute(
     `INSERT INTO sales_products
     SET sale_id = ?, product_id = ?, quantity = ?`,
     [insertId, e.productId, e.quantity],
@@ -34,17 +34,17 @@ const create = async (sale) => {
   };
 };
 
-const update = async ({ productId, quantity, id }) => {
-  await connection.execute(
+const update = async (sale, id) => {
+  await sale.forEach((e) => connection.execute(
     `UPDATE sales_products
     SET product_id = ?,
     quantity = ?
     WHERE sale_id = ?`,
-    [productId, quantity, id],
-  );
+    [e.productId, e.quantity, id],
+  ));
   return {
     saleId: id,
-    itemUpdated: [{ productId, quantity }],
+    itemUpdated: sale,
   };
 };
 

@@ -37,7 +37,7 @@ const update = async (req, res) => {
    const { id } = req.params;
    const test = await SaleService.getById(id);
    if (test === undefined) return res.status(404).json({ message: MSG_ERROR });
-   const sale = await SaleService.update({ ...req.body, id });
+   const sale = await SaleService.update(req.body, id);
    return res.status(200).json(sale);
  } catch (error) {
    return res.status(404).json({ messge: MSG_ERROR });

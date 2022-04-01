@@ -18,15 +18,9 @@ const create = async (sale) => {
   }
 };
 
-const update = async (sale) => {
+const update = async (sale, id) => {
   try {
-    // const { id } = sale;
-    // const test = await SaleModel.getById(id);
-
-    // if (!test) return { error: 404, message: 'Sale not found' };
-
-    const updated = await SaleModel.update(sale);
-
+    const updated = await SaleModel.update(sale, id);
     return updated;
   } catch (error) {
     return { error: 500, message: 'Server error' };
