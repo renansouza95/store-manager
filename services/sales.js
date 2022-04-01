@@ -20,10 +20,10 @@ const create = async (sale) => {
 
 const update = async (sale) => {
   try {
-    const { id } = sale;
-    const test = await SaleModel.getById(id);
+    // const { id } = sale;
+    // const test = await SaleModel.getById(id);
 
-    if (!test) return { error: 404, message: 'Sale not found' };
+    // if (!test) return { error: 404, message: 'Sale not found' };
 
     const updated = await SaleModel.update(sale);
 

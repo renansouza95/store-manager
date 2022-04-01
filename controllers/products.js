@@ -1,6 +1,8 @@
 const ProductModel = require('../models/products');
 const ProductService = require('../services/products');
 
+const MSG_ERROR = 'Product not found';
+
 const getAll = async (req, res) => {
   try {
     const products = await ProductModel.getAll();
@@ -14,10 +16,10 @@ const getById = async (req, res) => {
   try {
     const { id } = req.params;
     const product = await ProductService.getById(id);
-    if (!product) return res.status(404).json({ message: 'Product not found' });
+    if (!product) return res.status(404).json({ message: MSG_ERROR });
     return res.status(200).json(product);
   } catch (error) {
-    return res.status(404).json({ message: 'Product not found' });
+    return res.status(404).json({ message: MSG_ERROR });
   }
 };
 
@@ -36,20 +38,24 @@ const create = async (req, res) => {
 const update = async (req, res) => {
   try {
     const { id } = req.params;
+    const test = await ProductService.getById(id);
+    if (test === undefined) return res.status(404).json({ message: MSG_ERROR });
     const product = await ProductService.update({ ...req.body, id });
     return res.status(200).json(product);
   } catch (error) {
-    return res.status(404).json({ message: 'Product not found' });
+    return res.status(404).json({ message: MSG_ERROR });
   }
 };
 
 const deleteById = async (req, res) => {
   try {
     const { id } = req.params;
+    const test = await ProductService.getById(id);
+    if (test === undefined) return res.status(404).json({ message: MSG_ERROR });
     await ProductService.deleteById(id);
     return res.status(204).end();
   } catch (error) {
-    return res.status(404).json({ message: 'Product not found' });
+    return res.status(404).json({ message: MSG_ERROR });
   }
 };
 

@@ -29,10 +29,9 @@ const create = async (product) => {
 
 const update = async (product) => {
   try {
-    const { id } = product;
-    const test = await ProductModel.getById(id);
-
-    if (!test) return { error: 404, message: 'Product not found' };
+    // const { id } = product;
+    // const test = await ProductModel.getById(id);
+    // if (test === undefined) return { error: 404, message: 'Product not found' };
 
     const updated = await ProductModel.update(product);
 
@@ -44,9 +43,9 @@ const update = async (product) => {
 
 const deleteById = async (id) => {
   try {
-    const test = await ProductModel.getById(id);
+    // const test = await ProductModel.getById(id);
     
-    if (!test) return { error: 404, message: 'Product not found' };
+    // if (test === undefined) return { error: 404, message: 'Product not found' };
 
     await ProductModel.deleteById(id);
   } catch (error) {

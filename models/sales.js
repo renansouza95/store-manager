@@ -23,8 +23,10 @@ const getById = async (id) => {
 };
 
 const create = async ({ productId, quantity }) => {
+  await connection.execute('INSERT INTO sales SET id = ?, date = Date.now()', [productId]);
   const [{ insertId }] = await connection.execute(
-    'INSERT INTO sales_products SET productId = ?, quantity = ?',
+    `INSERT INTO sales_products
+    SET sale_id = ?, product_id = ?, quantity = ?`,
     [productId, quantity],
   );
   return {
