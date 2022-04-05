@@ -3,6 +3,7 @@ const ProductModel = require('../models/products');
 const getById = async (id) => {
   try {
     const product = await ProductModel.getById(id);
+    console.log(product);
     return product;
   } catch (error) {
   return { error: 404, message: 'Product not found' };
