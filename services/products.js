@@ -38,11 +38,8 @@ const update = async (product) => {
 
 const deleteById = async (id) => {
   try {
-    // const test = await ProductModel.getById(id);
-    
-    // if (test === undefined) return { error: 404, message: 'Product not found' };
-
-    await ProductModel.deleteById(id);
+    const response = await ProductModel.deleteById(id);
+    return response;
   } catch (error) {
     return { error: 500, message: 'Server error' };
   }
