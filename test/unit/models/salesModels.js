@@ -51,6 +51,7 @@ describe('Sales Model', () => {
   })
 
   describe('Create', () => {
+  
     const createSale = [{
       productId: 1,
       quantity: 3

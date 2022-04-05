@@ -29,7 +29,8 @@ const update = async (sale, id) => {
 
 const deleteById = async (id) => {
   try {
-    await SaleModel.deleteById(id);
+    const result = await SaleModel.deleteById(id);
+    return result;
   } catch (error) {
     return { error: 500, message: 'Server error' };
   }
