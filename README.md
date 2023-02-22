@@ -43,7 +43,7 @@ Criação de uma API de sistema de gerenciamento de vendas, onde é possível cr
 
 1. Clone o repositório
 
-   - `git clone git@github.com:Fernanda9421/store-manager.git`
+   - `git clone git@github.com:renansouza95/store-manager.git`
 
    - Entre na pasta que você acabou de clonar:
 
