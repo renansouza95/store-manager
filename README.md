@@ -9,7 +9,6 @@ Esse projeto foi desenvolvido durante o curso de Desenvolvimento Web, na Trybe.
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Habilidades](#habilidades)
 - [Contexto](#contexto)
-- [Data de desenvolvimento do projeto](#data-de-desenvolvimento-do-projeto)
 - [Instruções para clonar o projeto](#instruções-para-clonar-o-projeto)
 
 
@@ -37,12 +36,6 @@ Esse projeto foi desenvolvido durante o curso de Desenvolvimento Web, na Trybe.
 ### Contexto
 
 Criação de uma API de sistema de gerenciamento de vendas, onde é possível criar, visualizar, deletar e atualizar vendas e produtos.
-
-
-
-### Data de Desenvolvimento do Projeto
-
-- Abril / 2022
 
 
 
