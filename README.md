@@ -49,7 +49,7 @@ Criação de uma API de sistema de gerenciamento de vendas, onde é possível cr
 
      `cd store-manager`
 
-   2. Instale as dependências e inicialize o projeto
+2. Instale as dependências e inicialize o projeto
 
      * Instale as dependências:
 
